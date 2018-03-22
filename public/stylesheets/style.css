@@ -1,10 +1,46 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: #2B2B2B;
+}
+
+h1, p, label {
+    color: white;
 }
 
 a {
   color: #00B7FF;
 }
 
-.
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.answer__inside {
+    padding: 1em;
+}
+
+.answer--1 .answer__inside {
+    background: #00D1DA;
+}
+
+.answer--2 .answer__inside {
+    background: #F5F051;
+}
+
+.form {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: 1fr 0.5fr 0.5fr 0.5fr;
+}
+
+.field {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: 1fr 1fr;
+}
+
+
+
