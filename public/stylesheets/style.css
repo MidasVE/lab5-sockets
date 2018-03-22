@@ -4,7 +4,7 @@ body {
     background: #2B2B2B;
 }
 
-h1, p {
+h1, p, label {
     color: white;
 }
 
@@ -34,6 +34,12 @@ a {
     display: grid;
     grid-gap: 1em;
     grid-template-rows: 1fr 0.5fr 0.5fr 0.5fr;
+}
+
+.field {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: 1fr 1fr;
 }
 
 

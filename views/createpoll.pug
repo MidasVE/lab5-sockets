@@ -2,7 +2,13 @@ extends layout
 
 block content
     form(class="form" action="/createpoll" method="post")
-        h1 What programming language do you prefer?
-        input(type='text' class="input--1" name='input1')
-        input(type='text' class="input--2" name='input2')
+        div(class="field")
+            label Question you want to ask
+            input(type='text' class="input--1" name='input1')
+        div(class="field")
+            label Possible answer 1
+            input(type='text' class="input--2" name='input2')
+        div(class="field")
+            label Possible answer 2
+            input(type='text' class="input--3" name='input3')
         button(class="button") Use answers
