@@ -4,5 +4,9 @@ exports.start = function (server) {
 
     primus.on('connection', function (spark) {
         console.log("spark connected")
+
+        spark.on('data', function (data) {
+            primus.write(data);
+        })
     })
 }

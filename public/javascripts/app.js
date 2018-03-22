@@ -1,8 +1,32 @@
+var url = '/'
+var primus = Primus.connect(url, {
+    reconnect: {
+        max: Infinity
+        , min: 500
+        , retries: 10
+    }
+});
+var i = 0;
+var j = 0;
+primus.on('data', function (data) {
+    console.log(data.action)
+    if (data.action === "click1") {
+        i++;
+    } else {
+        j++;
+    }
+    var p1 = document.querySelector('.p--1');
+    p1.innerHTML = i;
+
+    var p2 = document.querySelector('.p--2')
+    p2.innerHTML = j;
+})
+
 document.querySelector('.answer__link--1').addEventListener('click', function (e) {
     e.preventDefault();
-    console.log('1 clicked')
+    primus.write({action: 'click1'})
 })
 document.querySelector('.answer__link--2').addEventListener('click', function (e) {
     e.preventDefault();
-    console.log('2 clicked')
+    primus.write({action: 'click2'})
 })
