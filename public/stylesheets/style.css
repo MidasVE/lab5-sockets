@@ -1,10 +1,32 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: #2B2B2B;
+}
+
+* {
+    color: white;
 }
 
 a {
   color: #00B7FF;
 }
 
-.
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5em;
+}
+
+.answer__inside {
+    padding: 1em;
+}
+
+.answer--1 .answer__inside {
+    background: #00D1DA;
+}
+
+.answer--2 .answer__inside {
+    background: #F5F051;
+}
+
