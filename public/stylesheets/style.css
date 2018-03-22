@@ -4,7 +4,7 @@ body {
     background: #2B2B2B;
 }
 
-* {
+h1, p {
     color: white;
 }
 
@@ -15,7 +15,7 @@ a {
 .answers {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 0.5em;
+    grid-gap: 1em;
 }
 
 .answer__inside {
@@ -29,4 +29,12 @@ a {
 .answer--2 .answer__inside {
     background: #F5F051;
 }
+
+.form {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: 1fr 0.5fr 0.5fr 0.5fr;
+}
+
+
 
