@@ -1,8 +1,8 @@
 extends layout
 
 block content
-    form(class="form" action="" method="post")
+    form(class="form" action="/createpoll" method="post")
         h1 What programming language do you prefer?
-        input(type='text' class="input--1")
-        input(type='text' class="input--2")
+        input(type='text' class="input--1" name='input1')
+        input(type='text' class="input--2" name='input2')
         button(class="button") Use answers
