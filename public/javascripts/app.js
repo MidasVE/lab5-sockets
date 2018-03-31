@@ -26,6 +26,24 @@ primus.on('data', function (data) {
     console.log(data);
     answersPage = document.querySelector('.answers');
     if (answersPage) {
+        var q = document.querySelector('.q');
+        var a1 = document.querySelector('.answer__link--1 p');
+        var a2 = document.querySelector('.answer__link--2 p');
+        var p1 = document.querySelector('.p--1');
+        var p2 = document.querySelector('.p--2');
+
+        if (data.question !== undefined) {
+            q.innerHTML = data.question;
+        }
+
+        if (data.answer1 !== undefined) {
+            a1.innerHTML = data.answer1;
+        }
+
+        if (data.answer2 !== undefined) {
+            a2.innerHTML = data.answer2;
+        }
+
         if (data.action === "click1") {
             i++;
             var percentage1 = i / (i + j) * 100 + '%';
@@ -35,9 +53,7 @@ primus.on('data', function (data) {
             var percentage2 = i / (i + j) * 100 + '%';
             primus.write({p: percentage2});
         }
-        if (data.p) {
-            console.log(data.p);
-        }
+
     }
 })
 var answerLink1 = document.querySelector('.answer__link--1');
