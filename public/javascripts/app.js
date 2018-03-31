@@ -9,7 +9,10 @@ var primus = Primus.connect(url, {
 
 document.querySelector('.buttonCreatePoll').addEventListener('click', function (e) {
     e.preventDefault();
-    console.log('test')
+    var form = document.querySelector('.form');
+    var question = form.elements[0].value;
+    var a1 = form.elements[1].value;
+    var a2 = form.elements[2].value;
 })
 
 var i = 0;
@@ -40,7 +43,9 @@ if (answerLink1) {
     })
 }
 var answerLink2 = document.querySelector('.answer__link--2');
-answerLink2.addEventListener('click', function (e) {
-    e.preventDefault();
-    primus.write({action: 'click2'})
-})
+if (answerLink2) {
+    answerLink2.addEventListener('click', function (e) {
+        e.preventDefault();
+        primus.write({action: 'click2'})
+    })
+}
