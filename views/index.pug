@@ -1,23 +1,16 @@
 extends layout
 
 block content
-    if question
-        h1= question
-        div(class='answers')
-            div(class= 'answer answer--1')
-                // p= percent1
-                p(class='p--1') percent 1
-                a(href='#' class="answer__link--1")
-                    div(class = 'answer__inside')
-                        p= language1
-            div(class= 'answer answer--2')
-                //p= percent2
-                p(class='p--2') percent 2
-                a(href='#' class="answer__link--2")
-                    div(class= 'answer__inside')
-                        p= language2
-    else
-        p.
-            Creeër #[a(href="/createpoll") hier] een poll
-
+    h1 No question asked.
+    div(class='answers')
+        div(class= 'answer answer--1')
+            p(class='p--1') percent 1
+            a(href='#' class="answer__link--1")
+                div(class = 'answer__inside')
+                    p
+        div(class= 'answer answer--2')
+            p(class='p--2') percent 2
+            a(href='#' class="answer__link--2")
+                div(class= 'answer__inside')
+                    p
 

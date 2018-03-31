@@ -6,33 +6,38 @@ var primus = Primus.connect(url, {
         , retries: 10
     }
 });
-
-document.querySelector('.buttonCreatePoll').addEventListener('click', function (e) {
-    e.preventDefault();
-    var form = document.querySelector('.form');
-    var question = form.elements[0].value;
-    var a1 = form.elements[1].value;
-    var a2 = form.elements[2].value;
-})
+var btnCreatePoll = document.querySelector('.buttonCreatePoll');
+if (btnCreatePoll) {
+    btnCreatePoll.addEventListener('click', function (e) {
+        e.preventDefault();
+        var form = document.querySelector('.form');
+        var question = form.elements[0].value;
+        var a1 = form.elements[1].value;
+        var a2 = form.elements[2].value;
+        primus.write({question: question});
+        primus.write({answer1: a1});
+        primus.write({answer2: a2});
+    });
+}
 
 var i = 0;
 var j = 0;
 primus.on('data', function (data) {
-    console.log(data.action)
-    if (data.action === "click1") {
-        i++;
-    } else {
-        j++;
-    }
-    var p1 = document.querySelector('.p--1');
-    var percentage1 = i / (i + j) * 100 + '%';
-    primus.write({p: percentage1})
-
-    var p2 = document.querySelector('.p--2')
-    p2.innerHTML = j / (i + j) * 100 + '%';
-
-    if (data.p) {
-        console.log(data.p);
+    console.log(data);
+    answersPage = document.querySelector('.answers');
+    if (answersPage) {
+        if (data.action === "click1") {
+            i++;
+            var percentage1 = i / (i + j) * 100 + '%';
+            primus.write({p: percentage1})
+        } else if (data.action === "click2") {
+            j++;
+            var percentage2 = i / (i + j) * 100 + '%';
+            primus.write({p: percentage2});
+        }
+        if (data.p) {
+            console.log(data.p);
+        }
     }
 })
 var answerLink1 = document.querySelector('.answer__link--1');
