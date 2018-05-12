@@ -33,6 +33,9 @@ var i1 = 0;
 var i2 = 0;
 
 primus.on("data", function (data) {
+    console.log(data.p1)
+    console.log(data.p2)
+
     if (data.question) {
         var q = document.querySelector('.q');
         q.innerHTML = data.question;
@@ -54,9 +57,7 @@ primus.on("data", function (data) {
             p1 = i1 / (i1 + i2) * 100;
             p2 = i2 / (i1 + i2) * 100;
             primus.write({
-                p1: p1
-            });
-            primus.write({
+                p1: p1,
                 p2: p2
             });
         } else if (data.action == 'click2') {
@@ -64,18 +65,15 @@ primus.on("data", function (data) {
             p1 = i1 / (i1 + i2) * 100;
             p2 = i2 / (i1 + i2) * 100;
             primus.write({
-                p1: p1
-            });
-            primus.write({
+                p1: p1,
                 p2: p2
             });
         }
     }
-    if (data.p1) {
+
+    if (data.p1 || data.p2) {
         var htmlp1 = document.querySelector('.p--1');
         htmlp1.innerHTML = data.p1;
-    }
-    if (data.p2) {
         var htmlp2 = document.querySelector('.p--2');
         htmlp2.innerHTML = data.p2;
     }
